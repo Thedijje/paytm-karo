@@ -1,8 +1,6 @@
 <?php 
 
-$data   =   file_get_contents('php://input');
 
-slack_notify(json_encode($data));
 
 function slack_notify($msg){
     $data = array('text'=>$msg);

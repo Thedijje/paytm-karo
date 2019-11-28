@@ -20,7 +20,7 @@ $paytmParams = array(
 	"CHANNEL_ID" => $payment_keys['CHANNEL_ID'],
     
 	/* Enter your unique order id */
-	"ORDER_ID" => "100",
+	"ORDER_ID" => "1999",
     
 	/* unique id that belongs to your customer */
 	"CUST_ID" => "101",
@@ -50,6 +50,10 @@ $checksum = getChecksumFromArray($paytmParams, $payment_keys["MKEY"]);
 
 /* for Staging */
 $url = "https://securegw-stage.paytm.in/order/process";
+
+require('status.php');
+
+slack_notify($checksum);
 
 
 ?>
